@@ -1,0 +1,199 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    background: #f4f4f4;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #2c3e50;
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-top: 20px;
+    transition: width 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar ul li {
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    padding: 12px 0;
+    transition: background 0.3s;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    background: #1abc9c;
+}
+
+#toggleSidebar {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+/* Collapsed Sidebar */
+.collapsed {
+    width: 60px;
+}
+
+.collapsed h2 {
+    display: none;
+}
+
+.collapsed ul li a {
+    font-size: 0;
+    padding: 10px 0;
+}
+
+.collapsed ul li a::before {
+    font-size: 18px;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    width: calc(100% - 250px);
+    transition: margin-left 0.3s, width 0.3s;
+}
+
+.collapsed + .main-content {
+    margin-left: 60px;
+    width: calc(100% - 60px);
+}
+
+/* Header */
+header {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+/* Overview Cards */
+.overview {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 22%;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Charts */
+.charts {
+    margin-top: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.charts h2 {
+    margin-bottom: 10px;
+}
+
+/* Transactions Table */
+.transactions {
+    margin-top: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.transactions h2 {
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #1abc9c;
+    color: white;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background: #121212;
+    color: white;
+}
+
+.dark-mode .main-content,
+.dark-mode header,
+.dark-mode .overview .card,
+.dark-mode .charts,
+.dark-mode .transactions {
+    background: #1a1a1a;
+    color: white;
+}
+
+.dark-mode th {
+    background: #16a085;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <header>
+        <h1>Finance Management - Customer Dashboard</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Account Summary</a></li>
+            <li><a href="#">Due Payments</a></li>
+            <li><a href="#">Transaction History</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="dashboard-overview">
+            <div class="card">
+                <h3>Account Balance</h3>
+                <p>₹20,000</p>
+            </div>
+            <div class="card">
+                <h3>Upcoming Due</h3>
+                <p>₹2,000</p>
+            </div>
+            <div class="card">
+                <h3>Last Payment</h3>
+                <p>₹3,000</p>
+            </div>
+        </section>
+
+        <section class="transaction-list">
+            <h2>Recent Transactions</h2>
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>18-Feb-2025</td>
+                    <td>₹3,000</td>
+                    <td>Paid</td>
+                </tr>
+                <tr>
+                    <td>15-Feb-2025</td>
+                    <td>₹2,000</td>
+                    <td>Pending</td>
+                </tr>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

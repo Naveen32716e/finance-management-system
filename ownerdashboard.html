@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard</title>
+    <link rel="stylesheet" href="owner_dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Owner Panel</h2>
+        <button id="toggleSidebar">☰</button>
+        <ul>
+            <li><a href="#" class="active">Dashboard</a></li>
+            <li><a href="#">Investments</a></li>
+            <li><a href="#">Profits & Losses</a></li>
+            <li><a href="#">Manage Collectors</a></li>
+            <li><a href="#">Transactions</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">User Management</a></li>
+            <li><a href="#">Notifications</a></li>
+            <li><a href="#">Help & Support</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>Owner Dashboard</h1>
+            <button id="darkModeToggle">🌙</button>
+        </header>
+
+        <section class="overview">
+            <div class="card">
+                <h3>Total Investments</h3>
+                <p>₹5,00,000</p>
+            </div>
+            <div class="card">
+                <h3>Monthly Profit</h3>
+                <p>₹50,000</p>
+            </div>
+            <div class="card">
+                <h3>Active Collectors</h3>
+                <p>10</p>
+            </div>
+            <div class="card">
+                <h3>Pending Transactions</h3>
+                <p>₹15,000</p>
+            </div>
+            <div class="card">
+                <h3>Monthly Loss</h3>
+                <p>₹10,000</p>
+            </div>
+        </section>
+
+        <section class="charts">
+            <h2>Financial Overview</h2>
+            <canvas id="investmentChart"></canvas>
+            <canvas id="profitLossChart"></canvas>
+        </section>
+
+        <section class="transactions">
+            <h2>Recent Transactions</h2>
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Collector</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>18-Feb-2025</td>
+                    <td>Ravi</td>
+                    <td>₹10,000</td>
+                    <td class="completed">Completed</td>
+                </tr>
+                <tr>
+                    <td>17-Feb-2025</td>
+                    <td>Priya</td>
+                    <td>₹7,500</td>
+                    <td class="pending">Pending</td>
+                </tr>
+            </table>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById('toggleSidebar').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('collapsed');
+        });
+
+        document.getElementById('darkModeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        var ctx1 = document.getElementById('investmentChart').getContext('2d');
+        var investmentChart = new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                datasets: [{
+                    label: 'Investments (₹)',
+                    data: [100000, 120000, 90000, 110000, 150000],
+                    backgroundColor: 'rgba(52, 152, 219, 0.7)',
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    }
+                }
+            }
+        });
+
+        var ctx2 = document.getElementById('profitLossChart').getContext('2d');
+        var profitLossChart = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                datasets: [
+                    {
+                        label: 'Profit (₹)',
+                        data: [30000, 45000, 40000, 50000, 55000],
+                        borderColor: 'green',
+                        fill: false
+                    },
+                    {
+                        label: 'Loss (₹)',
+                        data: [5000, 7000, 6000, 8000, 10000],
+                        borderColor: 'red',
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
